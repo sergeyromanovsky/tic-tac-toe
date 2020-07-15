@@ -1,0 +1,83 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier",
+    "prettier/react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/extensions": [".ts", ".tsx"],
+    "import/resolver": {
+      "typescript": {} // this loads <rootdir>/tsconfig.json to eslint
+    }
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+
+  "rules": {
+    // Include .prettierrc.js rules
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      },
+      { "usePrettierrc": true }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "useRecoilCallback"
+      }
+    ],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "react/display-name": 0,
+    "no-prototype-builtins": 0,
+    "no-empty": 0,
+    "react/no-find-dom-node": 0,
+    "no-extra-boolean-cast": 0,
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/camelcase": 0,
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/interface-name-prefix": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/ban-ts-ignore": 0,
+        "@typescript-eslint/no-use-before-define": 1,
+        "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/ban-ts-comment": 0
+      }
+    }
+  ]
+}
